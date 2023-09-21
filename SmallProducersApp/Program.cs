@@ -1,3 +1,6 @@
+using SmallProducersApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace SmallProducersApp
 {
     internal static class Program
