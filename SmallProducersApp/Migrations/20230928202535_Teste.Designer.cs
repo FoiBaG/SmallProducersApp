@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmallProducersApp.Data;
 
@@ -10,9 +11,11 @@ using SmallProducersApp.Data;
 namespace SmallProducersApp.Migrations
 {
     [DbContext(typeof(SmallProducersContext))]
-    partial class SmallProducersContextModelSnapshot : ModelSnapshot
+    [Migration("20230928202535_Teste")]
+    partial class Teste
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,16 +32,16 @@ namespace SmallProducersApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductCategoryCategoryID")
-                        .HasColumnType("int");
-
                     b.HasKey("ProductID");
 
-                    b.HasIndex("ProductCategoryCategoryID");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Product");
                 });
@@ -65,13 +68,13 @@ namespace SmallProducersApp.Migrations
 
             modelBuilder.Entity("SmallProducersApp.Models.Product", b =>
                 {
-                    b.HasOne("SmallProducersApp.Models.ProductCategory", "ProductCategory")
+                    b.HasOne("SmallProducersApp.Models.ProductCategory", "Category")
                         .WithMany()
-                        .HasForeignKey("ProductCategoryCategoryID")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ProductCategory");
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

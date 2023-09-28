@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using SmallProducersApp.Models;
+//using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace SmallProducersApp.Data
 {
@@ -32,5 +35,7 @@ namespace SmallProducersApp.Data
 
             optionsBuilder.UseSqlServer(@connectionString);
         }
+
+        
     }
 }
