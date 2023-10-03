@@ -6,21 +6,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace SmallProducersApp.Models
 {
     public  class Product
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductID { get; set; }
         [Required]
-        public string Name { get; set; }
+        public int ProductNumber { get; set; }
         [Required]
-        public ProductCategory ProductCategory { get; set; }
+        public string Name { get; set; }
 
-        //[ForeignKey("CategoryID")]
-        //public virtual ProductCategory Category { get; set; }
+        [Required]
+        public string UnitType { get; set; }
+
+        [Required]
+        public int CategoryID { get; set; } // Foreign key to ProductCategory
+
+        [ForeignKey("CategoryID")] // This specifies the foreign key relationship
+        public ProductCategory ProductCategory { get; set; }
 
         public Product()
         {
@@ -48,7 +55,8 @@ namespace SmallProducersApp.Models
         public static List<Product> GetAll()
         {
             SmallProducersContext sp = new SmallProducersContext();
-            var x = sp.Product.ToList();
+            var x = sp.Product.Include(p => p.ProductCategory).ToList();
+            //var x = sp.Product.ToList();
             return x;
 
         }
@@ -80,7 +88,7 @@ namespace SmallProducersApp.Models
             if (edit != null)
             {
                 edit.Name = newdata.Name;
-                edit.ProductCategory = newdata.ProductCategory;
+                edit.CategoryID = newdata.CategoryID;
 
                 SmallProducersContext sp = new SmallProducersContext();
                 var x = sp.Product.Update(edit);

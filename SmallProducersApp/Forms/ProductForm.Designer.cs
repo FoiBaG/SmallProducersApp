@@ -59,7 +59,7 @@
             dataGridProducts.Location = new Point(1, 148);
             dataGridProducts.Name = "dataGridProducts";
             dataGridProducts.RowTemplate.Height = 25;
-            dataGridProducts.Size = new Size(1232, 452);
+            dataGridProducts.Size = new Size(1232, 462);
             dataGridProducts.TabIndex = 47;
             // 
             // comboProductUnit

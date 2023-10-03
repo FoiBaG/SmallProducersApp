@@ -13,7 +13,6 @@ namespace SmallProducersApp.Models
     public class ProductCategory
     {
         [Key]
-        
         public int CategoryID { get; set; }
         [Required]
         public string CategoryName { get; set; }

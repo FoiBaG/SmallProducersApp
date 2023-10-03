@@ -1,4 +1,5 @@
 ﻿using SmallProducersApp.Models;
+using SmallProducersApp.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,7 @@ namespace SmallProducersApp.Forms
                 p.Name = tBoxProductName.Text;
 
                 string valorDaCombo = "";
+                string valorDaComboUnit = "";
 
                 if (comboProductCategory.SelectedItem != null)
                 {
@@ -57,18 +59,30 @@ namespace SmallProducersApp.Forms
                     throw new Exception("Selecione um valor no campo categoria.");
                 }
 
-                var pesquisaCategorio = ProductCategory.Get(1006);
+                if (comboProductUnit.SelectedItem != null)
+                {
+                    valorDaComboUnit = comboProductUnit.SelectedItem.ToString();
+                    p.UnitType = valorDaComboUnit;
+                }
+                else
+                {
+                    throw new Exception("Selecione um valor no campo Unidade.");
+                }
 
-                //if (pesquisaCategorio.Count == 0)
-                //{
-                //    throw new Exception("A categoria escolhida j;á nºãõ existe.");
-                //}
-                //else
-                //{
-                    p.ProductCategory = pesquisaCategorio;
-                //}
+                var pesquisaCategorio = ProductCategory.Get(valorDaCombo);
+
+                if (pesquisaCategorio.Count == 0)
+                {
+                    throw new Exception("A categoria escolhida j;á nºãõ existe.");
+                }
+                else
+                {
+                    p.CategoryID = pesquisaCategorio[0].CategoryID;
+                }
 
                 p.Add();
+                UpdateDataGrid();
+
             }
             catch (Exception ex)
             {
@@ -80,7 +94,7 @@ namespace SmallProducersApp.Forms
         private void UpdateDataGrid()
         {
             var allProducts = Product.GetAll();
-            dataGridProducts.DataSource = allProducts;
+            dataGridProducts.DataSource = ViewProduct.GetViewFromList(allProducts);
         }
 
         private void UpdateComboPoductUnit()

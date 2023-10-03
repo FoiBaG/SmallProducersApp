@@ -11,8 +11,8 @@ using SmallProducersApp.Data;
 namespace SmallProducersApp.Migrations
 {
     [DbContext(typeof(SmallProducersContext))]
-    [Migration("20230928204913_Teste3")]
-    partial class Teste3
+    [Migration("20231003195139_Full")]
+    partial class Full
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,16 +32,23 @@ namespace SmallProducersApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductCategoryCategoryID")
+                    b.Property<int>("ProductNumber")
                         .HasColumnType("int");
+
+                    b.Property<string>("UnitType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductID");
 
-                    b.HasIndex("ProductCategoryCategoryID");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Product");
                 });
@@ -70,7 +77,7 @@ namespace SmallProducersApp.Migrations
                 {
                     b.HasOne("SmallProducersApp.Models.ProductCategory", "ProductCategory")
                         .WithMany()
-                        .HasForeignKey("ProductCategoryCategoryID")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
