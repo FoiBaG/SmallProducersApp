@@ -20,8 +20,8 @@ namespace SmallProducersApp
 
         private void btnClients_Click(object sender, EventArgs e)
         {
-            CategoryForm category = new CategoryForm();
-            category.ShowDialog();
+            ClientForm clientForm = new ClientForm();
+            clientForm.ShowDialog();
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
