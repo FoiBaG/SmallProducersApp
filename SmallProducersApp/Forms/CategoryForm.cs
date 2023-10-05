@@ -27,16 +27,27 @@ namespace SmallProducersApp
             try
             {
 
+
+
                 Category.CategoryName = tBoxCategoryName.Text;
 
                 try
                 {
                     Category.Iva = float.Parse(tBoxIVA.Text);
+
+                 
+                 
+
                 }
-                catch (Exception)
+                catch (Exception ex1)
                 {
 
-                    throw new Exception("Erro no campo do iva.");
+                    throw new Exception("Erro no campo do iva." + ex1.Message);
+                }
+
+                if (Category.Iva > 100)
+                {
+                    throw new Exception("O iva não o pode 100");
                 }
 
 
@@ -56,6 +67,8 @@ namespace SmallProducersApp
         {
             var allCategory = ProductCategory.GetAll();
             categoryDataGrid.DataSource = allCategory;
+            categoryDataGrid.Columns["CategoryID"].HeaderText = "Código";
+            categoryDataGrid.Columns["CategoryName"].HeaderText = "Nome da Categoria";
         }
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)

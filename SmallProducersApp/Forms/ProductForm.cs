@@ -26,17 +26,10 @@ namespace SmallProducersApp.Forms
         {
             List<ProductCategory> c = ProductCategory.GetAll();
 
-            //List<string> medidas = new List<string> { "one", "two", "three" };
-
             foreach (ProductCategory item in c)
             {
                 comboProductCategory.Items.Add(item.CategoryName);
             }
-
-
-
-
-
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -44,43 +37,69 @@ namespace SmallProducersApp.Forms
 
             try
             {
-                Product p = new Product();
-                p.Name = tBoxProductName.Text;
+                Product newProduct = new Product();
+                newProduct.Name = tBoxProductName.Text;
 
-                string valorDaCombo = "";
-                string valorDaComboUnit = "";
+                try
+                {
+                    newProduct.ProductNumber = int.Parse(tBoxProductNumber.Text);
+
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("O valor do campo Product Number " + tBoxProductNumber.Text + " não pode ser convertido para um numero.");
+
+                }
+
+                string comboBoxProductCategory = "";
+                string comboBoxProductUnit = "";
 
                 if (comboProductCategory.SelectedItem != null)
                 {
-                    valorDaCombo = comboProductCategory.SelectedItem.ToString();
+                    comboBoxProductCategory = comboProductCategory.SelectedItem.ToString();
                 }
                 else
                 {
                     throw new Exception("Selecione um valor no campo categoria.");
                 }
 
+
                 if (comboProductUnit.SelectedItem != null)
                 {
-                    valorDaComboUnit = comboProductUnit.SelectedItem.ToString();
-                    p.UnitType = valorDaComboUnit;
+                    comboBoxProductUnit = comboProductUnit.SelectedItem.ToString();
                 }
                 else
                 {
                     throw new Exception("Selecione um valor no campo Unidade.");
                 }
 
-                var pesquisaCategorio = ProductCategory.Get(valorDaCombo);
 
-                if (pesquisaCategorio.Count == 0)
+                List<ProductCategory> categorySearch = ProductCategory.Get(comboBoxProductCategory);
+
+                if (categorySearch.Count == 0)
                 {
                     throw new Exception("A categoria escolhida j;á nºãõ existe.");
                 }
                 else
                 {
-                    p.CategoryID = pesquisaCategorio[0].CategoryID;
+
+                    newProduct.CategoryID = categorySearch[0].CategoryID;
                 }
 
-                p.Add();
+                List<UnitType> unitSearch = UnitType.Get(comboBoxProductUnit);
+
+                if (unitSearch.Count == 0)
+                {
+                    throw new Exception("A categoria escolhida j;á nºãõ existe.");
+                }
+                else
+                {
+
+                    newProduct.UnitTypeID = unitSearch[0].UnitTypeID;
+                }
+
+                newProduct.Add();
                 UpdateDataGrid();
 
             }
@@ -93,15 +112,26 @@ namespace SmallProducersApp.Forms
         }
         private void UpdateDataGrid()
         {
+
+
+
             var allProducts = Product.GetAll();
             dataGridProducts.DataSource = ViewProduct.GetViewFromList(allProducts);
+
+            dataGridProducts.Columns["Id"].HeaderText = "Código";
+            dataGridProducts.Columns["ProductName"].HeaderText = "Nome do Produto";
+            dataGridProducts.Columns["CategoryID"].HeaderText = "Categoria";
+            dataGridProducts.Columns["UnitType"].HeaderText = "Unidade";
         }
 
         private void UpdateComboPoductUnit()
         {
-            List<string> units = new List<string> { "Unidade", "Caixa", "Litros" };
-            comboProductUnit.DataSource = units;
-            //comboProductUnit.SelectedItem = "Litros";
+            List<UnitType> units = UnitType.GetAll();
+
+            foreach (UnitType unit in units)
+            {
+                comboProductUnit.Items.Add(unit.UnitTypeName);
+            }
         }
 
         private void btnRemoveProduct_Click(object sender, EventArgs e)
@@ -120,6 +150,12 @@ namespace SmallProducersApp.Forms
                 Product.Delete(cat.ProductID);
             }
             UpdateDataGrid();
+        }
+
+        private void btnUnitType_Click(object sender, EventArgs e)
+        {
+            UnitTypeForm unit = new UnitTypeForm();
+            unit.ShowDialog();
         }
     }
 }

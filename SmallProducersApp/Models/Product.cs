@@ -19,13 +19,12 @@ namespace SmallProducersApp.Models
         public int ProductNumber { get; set; }
         [Required]
         public string Name { get; set; }
-
         [Required]
-        public string UnitType { get; set; }
-
+        public int UnitTypeID { get; set; } // Foreign key to UnitType
+        [ForeignKey("UnitTypeID")] // This specifies the foreign key relationship
+        public UnitType UnitType { get; set; }
         [Required]
         public int CategoryID { get; set; } // Foreign key to ProductCategory
-
         [ForeignKey("CategoryID")] // This specifies the foreign key relationship
         public ProductCategory ProductCategory { get; set; }
 
@@ -55,7 +54,7 @@ namespace SmallProducersApp.Models
         public static List<Product> GetAll()
         {
             SmallProducersContext sp = new SmallProducersContext();
-            var x = sp.Product.Include(p => p.ProductCategory).ToList();
+            var x = sp.Product.Include(p => p.ProductCategory).Include(p => p.UnitType).ToList();
             //var x = sp.Product.ToList();
             return x;
 
@@ -63,22 +62,22 @@ namespace SmallProducersApp.Models
         public static Product Get(int id)
         {
             SmallProducersContext sp = new SmallProducersContext();
-            Product x = sp.Product.First(c => c.ProductID == id);
+            Product x = sp.Product.Include(p => p.ProductCategory).Include(p => p.UnitType).First(c => c.ProductID == id);
             return x;
         }
         public static List<Product> Get(string name)
         {
             SmallProducersContext sp = new SmallProducersContext();
-            var x = sp.Product.Where(c => c.Name == name).ToList();
+            var x = sp.Product.Include(p => p.ProductCategory).Include(p => p.UnitType).Where(c => c.Name == name).ToList();
             return x;
         }
         public static void Delete(int id)
         {
-            Product cat = Get(id);
-            if (cat != null)
+            Product prod = Get(id);
+            if (prod != null)
             {
                 SmallProducersContext sp = new SmallProducersContext();
-                var x = sp.Product.Remove(cat);
+                var x = sp.Product.Remove(prod);
                 sp.SaveChanges();
             }
         }
@@ -89,6 +88,7 @@ namespace SmallProducersApp.Models
             {
                 edit.Name = newdata.Name;
                 edit.CategoryID = newdata.CategoryID;
+                edit.UnitTypeID = newdata.UnitTypeID;
 
                 SmallProducersContext sp = new SmallProducersContext();
                 var x = sp.Product.Update(edit);

@@ -10,16 +10,16 @@ namespace SmallProducersApp.View
     public class ViewProduct
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string CategoryName { get; set; }
-        public string Unitsssssssssss { get; set; }
+        public string ProductName { get; set; }
+        public string CategoryID { get; set; }
+        public string UnitType { get; set; }
 
         public ViewProduct(Product prod)
         {
-            Id = prod.ProductID;
-            Name = prod.Name;
-            CategoryName = prod.ProductCategory.CategoryName;
-            Unitsssssssssss = prod.UnitType;
+            Id = prod.ProductNumber;
+            ProductName = prod.Name;
+            CategoryID = prod.ProductCategory.CategoryName;
+            UnitType = prod.UnitType.UnitTypeName;
         }
 
         public static List<ViewProduct> GetViewFromList(List<Product> products)

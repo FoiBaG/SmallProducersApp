@@ -40,6 +40,7 @@
             label1 = new Label();
             btnEditProduct = new Button();
             btnAddProduct = new Button();
+            btnUnitType = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridProducts).BeginInit();
             SuspendLayout();
             // 
@@ -151,11 +152,22 @@
             btnAddProduct.UseVisualStyleBackColor = true;
             btnAddProduct.Click += btnAddProduct_Click;
             // 
+            // btnUnitType
+            // 
+            btnUnitType.Location = new Point(467, 75);
+            btnUnitType.Name = "btnUnitType";
+            btnUnitType.Size = new Size(64, 59);
+            btnUnitType.TabIndex = 49;
+            btnUnitType.Text = "Unidades";
+            btnUnitType.UseVisualStyleBackColor = true;
+            btnUnitType.Click += btnUnitType_Click;
+            // 
             // ProductForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1234, 611);
+            Controls.Add(btnUnitType);
             Controls.Add(btnRemoveProduct);
             Controls.Add(dataGridProducts);
             Controls.Add(comboProductUnit);
@@ -189,5 +201,6 @@
         private Label label1;
         private Button btnEditProduct;
         private Button btnAddProduct;
+        private Button btnUnitType;
     }
 }

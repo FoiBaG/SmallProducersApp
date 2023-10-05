@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmallProducersApp.Data;
 
@@ -10,9 +11,11 @@ using SmallProducersApp.Data;
 namespace SmallProducersApp.Migrations
 {
     [DbContext(typeof(SmallProducersContext))]
-    partial class SmallProducersContextModelSnapshot : ModelSnapshot
+    [Migration("20231005135511_UnitTypeTable")]
+    partial class UnitTypeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,8 +48,6 @@ namespace SmallProducersApp.Migrations
                     b.HasKey("ProductID");
 
                     b.HasIndex("CategoryID");
-
-                    b.HasIndex("UnitTypeID");
 
                     b.ToTable("Product");
                 });
@@ -83,9 +84,8 @@ namespace SmallProducersApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UnitTypeNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UnitTypeNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("UnitTypeID");
 
@@ -100,15 +100,7 @@ namespace SmallProducersApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SmallProducersApp.Models.UnitType", "UnitType")
-                        .WithMany()
-                        .HasForeignKey("UnitTypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("ProductCategory");
-
-                    b.Navigation("UnitType");
                 });
 #pragma warning restore 612, 618
         }

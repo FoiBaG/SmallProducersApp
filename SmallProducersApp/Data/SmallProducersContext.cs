@@ -24,8 +24,7 @@ namespace SmallProducersApp.Data
 
         public DbSet<Models.ProductCategory> ProductCategory { get; set; }
         public DbSet<Models.Product> Product { get; set; }
-
-
+        public DbSet<Models.UnitType> UnitType { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
