@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientsAddEditForm));
             comboProductUnit = new ComboBox();
             tBoxProductName = new TextBox();
             tBoxProductNumber = new TextBox();
@@ -129,11 +130,11 @@
             // btnAddProduct
             // 
             btnAddProduct.BackgroundImageLayout = ImageLayout.None;
-            btnAddProduct.Image = Properties.Resources.add_FILL0_wght400_GRAD0_opsz24;
+            btnAddProduct.Image = (Image)resources.GetObject("btnAddProduct.Image");
             btnAddProduct.ImageAlign = ContentAlignment.TopCenter;
-            btnAddProduct.Location = new Point(257, 302);
+            btnAddProduct.Location = new Point(293, 183);
             btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(95, 44);
+            btnAddProduct.Size = new Size(59, 52);
             btnAddProduct.TabIndex = 60;
             btnAddProduct.Text = "Guardar";
             btnAddProduct.TextAlign = ContentAlignment.BottomCenter;
@@ -240,7 +241,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(364, 358);
+            ClientSize = new Size(364, 247);
             Controls.Add(label11);
             Controls.Add(tBoxLocation);
             Controls.Add(label10);
@@ -264,7 +265,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ClientsAddEditForm";
-            Text = "ClientsForm";
+            Text = "Novo Registo";
             ResumeLayout(false);
             PerformLayout();
         }

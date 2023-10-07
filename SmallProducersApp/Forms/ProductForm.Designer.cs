@@ -181,7 +181,7 @@
             Controls.Add(btnEditProduct);
             Controls.Add(btnAddProduct);
             Name = "ProductForm";
-            Text = "ProductForm";
+            Text = "Produtos";
             ((System.ComponentModel.ISupportInitialize)dataGridProducts).EndInit();
             ResumeLayout(false);
             PerformLayout();

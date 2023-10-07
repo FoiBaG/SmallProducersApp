@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             dataGridClients = new DataGridView();
-            btnRemoveProduct = new Button();
-            btnEditProduct = new Button();
+            btnRemoveClient = new Button();
+            btnEditClient = new Button();
             tBoxProductName = new TextBox();
             label2 = new Label();
             btnSearch = new Button();
@@ -44,38 +45,44 @@
             dataGridClients.Location = new Point(250, 76);
             dataGridClients.Name = "dataGridClients";
             dataGridClients.RowTemplate.Height = 25;
-            dataGridClients.Size = new Size(999, 527);
+            dataGridClients.Size = new Size(1005, 527);
             dataGridClients.TabIndex = 48;
             // 
-            // btnRemoveProduct
+            // btnRemoveClient
             // 
-            btnRemoveProduct.Location = new Point(1189, 10);
-            btnRemoveProduct.Name = "btnRemoveProduct";
-            btnRemoveProduct.Size = new Size(60, 60);
-            btnRemoveProduct.TabIndex = 50;
-            btnRemoveProduct.Text = "Remove";
-            btnRemoveProduct.UseVisualStyleBackColor = true;
+            btnRemoveClient.Image = (Image)resources.GetObject("btnRemoveClient.Image");
+            btnRemoveClient.ImageAlign = ContentAlignment.TopCenter;
+            btnRemoveClient.Location = new Point(396, 12);
+            btnRemoveClient.Name = "btnRemoveClient";
+            btnRemoveClient.Size = new Size(67, 58);
+            btnRemoveClient.TabIndex = 50;
+            btnRemoveClient.Text = "Remover Registo";
+            btnRemoveClient.TextAlign = ContentAlignment.BottomCenter;
+            btnRemoveClient.UseVisualStyleBackColor = true;
             // 
-            // btnEditProduct
+            // btnEditClient
             // 
-            btnEditProduct.Location = new Point(1123, 10);
-            btnEditProduct.Name = "btnEditProduct";
-            btnEditProduct.Size = new Size(60, 60);
-            btnEditProduct.TabIndex = 49;
-            btnEditProduct.Text = "Edit";
-            btnEditProduct.UseVisualStyleBackColor = true;
+            btnEditClient.Image = (Image)resources.GetObject("btnEditClient.Image");
+            btnEditClient.ImageAlign = ContentAlignment.TopCenter;
+            btnEditClient.Location = new Point(323, 12);
+            btnEditClient.Name = "btnEditClient";
+            btnEditClient.Size = new Size(67, 58);
+            btnEditClient.TabIndex = 49;
+            btnEditClient.Text = "Editar Registo";
+            btnEditClient.TextAlign = ContentAlignment.BottomCenter;
+            btnEditClient.UseVisualStyleBackColor = true;
             // 
             // tBoxProductName
             // 
-            tBoxProductName.Location = new Point(12, 103);
+            tBoxProductName.Location = new Point(12, 128);
             tBoxProductName.Name = "tBoxProductName";
-            tBoxProductName.Size = new Size(221, 23);
+            tBoxProductName.Size = new Size(232, 23);
             tBoxProductName.TabIndex = 52;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 76);
+            label2.Location = new Point(12, 110);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 51;
@@ -83,21 +90,28 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(68, 574);
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSearch.Location = new Point(160, 326);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(165, 29);
+            btnSearch.Size = new Size(84, 29);
             btnSearch.TabIndex = 53;
             btnSearch.Text = "Pesquisar";
+            btnSearch.TextAlign = ContentAlignment.MiddleRight;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
             // btnAddClient
             // 
-            btnAddClient.Location = new Point(250, 10);
+            btnAddClient.Image = Properties.Resources.add_FILL0_wght400_GRAD0_opsz24;
+            btnAddClient.ImageAlign = ContentAlignment.TopCenter;
+            btnAddClient.Location = new Point(250, 12);
             btnAddClient.Name = "btnAddClient";
-            btnAddClient.Size = new Size(90, 60);
+            btnAddClient.Size = new Size(67, 58);
             btnAddClient.TabIndex = 54;
-            btnAddClient.Text = "Adicionar";
+            btnAddClient.Text = "Novo Registo";
+            btnAddClient.TextAlign = ContentAlignment.BottomCenter;
+            btnAddClient.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAddClient.UseVisualStyleBackColor = true;
             btnAddClient.Click += btnAddClient_Click;
             // 
@@ -110,11 +124,11 @@
             Controls.Add(btnSearch);
             Controls.Add(tBoxProductName);
             Controls.Add(label2);
-            Controls.Add(btnRemoveProduct);
-            Controls.Add(btnEditProduct);
+            Controls.Add(btnRemoveClient);
+            Controls.Add(btnEditClient);
             Controls.Add(dataGridClients);
             Name = "ClientForm";
-            Text = "ClientForm";
+            Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)dataGridClients).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -123,8 +137,8 @@
         #endregion
 
         private DataGridView dataGridClients;
-        private Button btnRemoveProduct;
-        private Button btnEditProduct;
+        private Button btnRemoveClient;
+        private Button btnEditClient;
         private TextBox tBoxProductName;
         private Label label2;
         private Button btnSearch;

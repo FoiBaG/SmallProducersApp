@@ -36,18 +36,18 @@ namespace SmallProducersApp.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(tBoxProductName.Text.Count() == 1)
+            if (tBoxProductName.Text.Count() == 1)
             {
                 List<Client> searchClient = Client.GetStartWith(tBoxProductName.Text);
                 dataGridClients.DataSource = searchClient;
             }
-            else 
+            else
             {
                 List<Client> searchClient = Client.GetLike(tBoxProductName.Text);
-                dataGridClients.DataSource= searchClient;
+                dataGridClients.DataSource = searchClient;
             }
 
-            
+
         }
     }
 }
