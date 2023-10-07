@@ -36,7 +36,9 @@
             label2 = new Label();
             btnSearch = new Button();
             btnAddClient = new Button();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dataGridClients).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridClients
@@ -74,15 +76,15 @@
             // 
             // tBoxProductName
             // 
-            tBoxProductName.Location = new Point(12, 128);
+            tBoxProductName.Location = new Point(6, 50);
             tBoxProductName.Name = "tBoxProductName";
-            tBoxProductName.Size = new Size(232, 23);
+            tBoxProductName.Size = new Size(227, 23);
             tBoxProductName.TabIndex = 52;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 110);
+            label2.Location = new Point(6, 32);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 51;
@@ -92,7 +94,7 @@
             // 
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(160, 326);
+            btnSearch.Location = new Point(149, 318);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(84, 29);
             btnSearch.TabIndex = 53;
@@ -115,23 +117,34 @@
             btnAddClient.UseVisualStyleBackColor = true;
             btnAddClient.Click += btnAddClient_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btnSearch);
+            groupBox1.Controls.Add(tBoxProductName);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Location = new Point(7, 68);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(239, 353);
+            groupBox1.TabIndex = 55;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Pesquisa";
+            // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1267, 615);
             Controls.Add(btnAddClient);
-            Controls.Add(btnSearch);
-            Controls.Add(tBoxProductName);
-            Controls.Add(label2);
             Controls.Add(btnRemoveClient);
             Controls.Add(btnEditClient);
             Controls.Add(dataGridClients);
+            Controls.Add(groupBox1);
             Name = "ClientForm";
             Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)dataGridClients).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -143,5 +156,6 @@
         private Label label2;
         private Button btnSearch;
         private Button btnAddClient;
+        private GroupBox groupBox1;
     }
 }
