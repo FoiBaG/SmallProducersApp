@@ -44,7 +44,7 @@
             // dataGridClients
             // 
             dataGridClients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridClients.Location = new Point(250, 76);
+            dataGridClients.Location = new Point(253, 76);
             dataGridClients.Name = "dataGridClients";
             dataGridClients.RowTemplate.Height = 25;
             dataGridClients.Size = new Size(1005, 527);
@@ -54,7 +54,7 @@
             // 
             btnRemoveClient.Image = (Image)resources.GetObject("btnRemoveClient.Image");
             btnRemoveClient.ImageAlign = ContentAlignment.TopCenter;
-            btnRemoveClient.Location = new Point(396, 12);
+            btnRemoveClient.Location = new Point(399, 12);
             btnRemoveClient.Name = "btnRemoveClient";
             btnRemoveClient.Size = new Size(67, 58);
             btnRemoveClient.TabIndex = 50;
@@ -66,7 +66,7 @@
             // 
             btnEditClient.Image = (Image)resources.GetObject("btnEditClient.Image");
             btnEditClient.ImageAlign = ContentAlignment.TopCenter;
-            btnEditClient.Location = new Point(323, 12);
+            btnEditClient.Location = new Point(326, 12);
             btnEditClient.Name = "btnEditClient";
             btnEditClient.Size = new Size(67, 58);
             btnEditClient.TabIndex = 49;
@@ -107,7 +107,7 @@
             // 
             btnAddClient.Image = Properties.Resources.add_FILL0_wght400_GRAD0_opsz24;
             btnAddClient.ImageAlign = ContentAlignment.TopCenter;
-            btnAddClient.Location = new Point(250, 12);
+            btnAddClient.Location = new Point(253, 12);
             btnAddClient.Name = "btnAddClient";
             btnAddClient.Size = new Size(67, 58);
             btnAddClient.TabIndex = 54;
@@ -122,7 +122,7 @@
             groupBox1.Controls.Add(btnSearch);
             groupBox1.Controls.Add(tBoxProductName);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(7, 68);
+            groupBox1.Location = new Point(10, 68);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(239, 353);
             groupBox1.TabIndex = 55;
