@@ -73,12 +73,8 @@ namespace SmallProducersApp
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-
-            //criar lista vazia de ProductCategory
             var listSelectedRows = new List<ProductCategory>();
 
-
-            //encher a lista com os linhas selecionadas da DataGrid
             for (int index = 0; index < categoryDataGrid.SelectedRows.Count; index++)
             {
                 var selectedRow = categoryDataGrid.SelectedRows[index];
@@ -87,13 +83,11 @@ namespace SmallProducersApp
                 listSelectedRows.Add(prodCat);
             }
 
-            //por cada elemento da lista, chamar o metedo Delete
             foreach (ProductCategory cat in listSelectedRows)
             {
                 ProductCategory.Delete(cat.CategoryID);
             }
 
-            //atualizar o datagrid
             UpdateDataGrid();
         }
     }

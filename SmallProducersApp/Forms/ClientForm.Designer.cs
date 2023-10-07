@@ -61,6 +61,7 @@
             btnRemoveClient.Text = "Remover Registo";
             btnRemoveClient.TextAlign = ContentAlignment.BottomCenter;
             btnRemoveClient.UseVisualStyleBackColor = true;
+            btnRemoveClient.Click += btnRemoveClient_Click;
             // 
             // btnEditClient
             // 

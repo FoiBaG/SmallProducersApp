@@ -49,5 +49,25 @@ namespace SmallProducersApp.Forms
 
 
         }
+
+        private void btnRemoveClient_Click(object sender, EventArgs e)
+        {
+            var listSelectedRows = new List<Client>();
+
+            for (int index = 0; index < dataGridClients.SelectedRows.Count; index++)
+            {
+                var selectedRow = dataGridClients.SelectedRows[index];
+                var cli = (Client)selectedRow.DataBoundItem;
+
+                listSelectedRows.Add(cli);
+            }
+
+            foreach (Client client in listSelectedRows)
+            {
+                Client.Delete(client.ClientID);
+            }
+
+            UpdateDataGridClients();
+        }
     }
 }
