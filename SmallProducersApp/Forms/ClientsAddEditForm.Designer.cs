@@ -38,7 +38,7 @@
             label1 = new Label();
             tBoxClientName = new TextBox();
             label7 = new Label();
-            btnAddProduct = new Button();
+            btnAddClient = new Button();
             tBoxAddress = new TextBox();
             label5 = new Label();
             tBoxNIF = new TextBox();
@@ -127,19 +127,19 @@
             label7.TabIndex = 63;
             label7.Text = "Nome:";
             // 
-            // btnAddProduct
+            // btnAddClient
             // 
-            btnAddProduct.BackgroundImageLayout = ImageLayout.None;
-            btnAddProduct.Image = (Image)resources.GetObject("btnAddProduct.Image");
-            btnAddProduct.ImageAlign = ContentAlignment.TopCenter;
-            btnAddProduct.Location = new Point(319, 111);
-            btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(59, 52);
-            btnAddProduct.TabIndex = 60;
-            btnAddProduct.Text = "Guardar";
-            btnAddProduct.TextAlign = ContentAlignment.BottomCenter;
-            btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += btnAddProduct_Click;
+            btnAddClient.BackgroundImageLayout = ImageLayout.None;
+            btnAddClient.Image = (Image)resources.GetObject("btnAddClient.Image");
+            btnAddClient.ImageAlign = ContentAlignment.TopCenter;
+            btnAddClient.Location = new Point(319, 111);
+            btnAddClient.Name = "btnAddClient";
+            btnAddClient.Size = new Size(59, 52);
+            btnAddClient.TabIndex = 60;
+            btnAddClient.Text = "Guardar";
+            btnAddClient.TextAlign = ContentAlignment.BottomCenter;
+            btnAddClient.UseVisualStyleBackColor = true;
+            btnAddClient.Click += btnAddClient_Click;
             // 
             // tBoxAddress
             // 
@@ -256,7 +256,7 @@
             Controls.Add(label5);
             Controls.Add(tBoxClientName);
             Controls.Add(label7);
-            Controls.Add(btnAddProduct);
+            Controls.Add(btnAddClient);
             Controls.Add(comboProductUnit);
             Controls.Add(tBoxProductName);
             Controls.Add(tBoxProductNumber);
@@ -265,7 +265,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "ClientsAddEditForm";
-            Text = "Novo Registo";
+            Text = "Adicionar/Editar Registo";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -288,7 +288,7 @@
         private Label label7;
         private Label label8;
         private Button btnEditProduct;
-        private Button btnAddProduct;
+        private Button btnAddClient;
         private TextBox tBoxAddress;
         private TextBox tBoxNIF;
         private TextBox tBoxPhoneNumber;

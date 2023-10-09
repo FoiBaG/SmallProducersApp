@@ -29,24 +29,80 @@ namespace SmallProducersApp.Forms
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
-
             clientsAddEditForm.ShowDialog();
             UpdateDataGridClients();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (tBoxProductName.Text.Count() == 1)
+
+            List<Client> searchClient = Client.GetAll();
+            
+            if (tBoxSearchClientName.Text != "")
             {
-                List<Client> searchClient = Client.GetStartWith(tBoxProductName.Text);
-                dataGridClients.DataSource = searchClient;
-            }
-            else
-            {
-                List<Client> searchClient = Client.GetLike(tBoxProductName.Text);
-                dataGridClients.DataSource = searchClient;
+
+                List<Client> searchClientName;
+
+                if (tBoxSearchClientName.Text.Count() == 1)
+                {
+                    searchClientName = searchClient.FindAll(Client => Client.ClientName.ToLower().First().Equals(tBoxSearchClientName.Text.ToLower()));
+                }
+                else
+                {
+                    searchClientName = searchClient.FindAll(Client => Client.ClientName.ToLower().Contains(tBoxSearchClientName.Text.ToLower()));
+                }
+                searchClient = searchClientName;
             }
 
+            if (tBoxSearchLocation.Text != "")
+            {
+
+                List<Client> searchClientLocation;
+
+                if (tBoxSearchLocation.Text.Count() == 1)
+                {
+                    searchClientLocation = searchClient.FindAll(Client => Client.Location.ToLower().First().Equals(tBoxSearchLocation.Text.ToLower()));
+                }
+                else
+                {
+                    searchClientLocation = searchClient.FindAll(Client => Client.Location.ToLower().Contains(tBoxSearchLocation.Text.ToLower()));
+                }
+                searchClient = searchClientLocation;
+            }
+
+            if (tBoxSearchNIF.Text != "")
+            {
+
+                List<Client> searchClientNIF;
+
+                if (tBoxSearchLocation.Text.Count() == 1)
+                {
+                    searchClientNIF = searchClient.FindAll(Client => Client.NIF.ToString().First().Equals(tBoxSearchNIF.Text));
+                }
+                else
+                {
+                    searchClientNIF = searchClient.FindAll(Client => Client.NIF.ToString().Contains(tBoxSearchNIF.Text));
+                }
+                searchClient = searchClientNIF;
+            }
+
+            if (tBoxSearchPhoneNumber.Text != "")
+            {
+
+                List<Client> searchClientPhoneNumber;
+
+                if (tBoxSearchPhoneNumber.Text.Count() == 1)
+                {
+                    searchClientPhoneNumber = searchClient.FindAll(Client => Client.PhoneNumber.ToString().First().Equals(tBoxSearchPhoneNumber.Text));
+                }
+                else
+                {
+                    searchClientPhoneNumber = searchClient.FindAll(Client => Client.PhoneNumber.ToString().Contains(tBoxSearchPhoneNumber.Text));
+                }
+                searchClient = searchClientPhoneNumber;
+            }
+
+            dataGridClients.DataSource = searchClient;
 
         }
 

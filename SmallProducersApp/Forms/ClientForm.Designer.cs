@@ -32,11 +32,17 @@
             dataGridClients = new DataGridView();
             btnRemoveClient = new Button();
             btnEditClient = new Button();
-            tBoxProductName = new TextBox();
+            tBoxSearchClientName = new TextBox();
             label2 = new Label();
             btnSearch = new Button();
             btnAddClient = new Button();
             groupBox1 = new GroupBox();
+            tBoxSearchLocation = new TextBox();
+            label1 = new Label();
+            tBoxSearchNIF = new TextBox();
+            label3 = new Label();
+            tBoxSearchPhoneNumber = new TextBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridClients).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -47,7 +53,7 @@
             dataGridClients.Location = new Point(253, 76);
             dataGridClients.Name = "dataGridClients";
             dataGridClients.RowTemplate.Height = 25;
-            dataGridClients.Size = new Size(1005, 527);
+            dataGridClients.Size = new Size(969, 523);
             dataGridClients.TabIndex = 48;
             // 
             // btnRemoveClient
@@ -75,12 +81,12 @@
             btnEditClient.TextAlign = ContentAlignment.BottomCenter;
             btnEditClient.UseVisualStyleBackColor = true;
             // 
-            // tBoxProductName
+            // tBoxSearchClientName
             // 
-            tBoxProductName.Location = new Point(6, 50);
-            tBoxProductName.Name = "tBoxProductName";
-            tBoxProductName.Size = new Size(227, 23);
-            tBoxProductName.TabIndex = 52;
+            tBoxSearchClientName.Location = new Point(6, 50);
+            tBoxSearchClientName.Name = "tBoxSearchClientName";
+            tBoxSearchClientName.Size = new Size(227, 23);
+            tBoxSearchClientName.TabIndex = 52;
             // 
             // label2
             // 
@@ -95,7 +101,7 @@
             // 
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(149, 318);
+            btnSearch.Location = new Point(149, 251);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(84, 29);
             btnSearch.TabIndex = 53;
@@ -120,21 +126,75 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(tBoxSearchPhoneNumber);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(tBoxSearchNIF);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(tBoxSearchLocation);
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(btnSearch);
-            groupBox1.Controls.Add(tBoxProductName);
+            groupBox1.Controls.Add(tBoxSearchClientName);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(10, 68);
+            groupBox1.Location = new Point(7, 178);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(239, 353);
+            groupBox1.Size = new Size(239, 286);
             groupBox1.TabIndex = 55;
             groupBox1.TabStop = false;
             groupBox1.Text = "Pesquisa";
+            // 
+            // tBoxSearchLocation
+            // 
+            tBoxSearchLocation.Location = new Point(6, 99);
+            tBoxSearchLocation.Name = "tBoxSearchLocation";
+            tBoxSearchLocation.Size = new Size(227, 23);
+            tBoxSearchLocation.TabIndex = 55;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 81);
+            label1.Name = "label1";
+            label1.Size = new Size(67, 15);
+            label1.TabIndex = 54;
+            label1.Text = "Localidade:";
+            // 
+            // tBoxSearchNIF
+            // 
+            tBoxSearchNIF.Location = new Point(6, 152);
+            tBoxSearchNIF.Name = "tBoxSearchNIF";
+            tBoxSearchNIF.Size = new Size(227, 23);
+            tBoxSearchNIF.TabIndex = 57;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 134);
+            label3.Name = "label3";
+            label3.Size = new Size(28, 15);
+            label3.TabIndex = 56;
+            label3.Text = "NIF:";
+            // 
+            // tBoxSearchPhoneNumber
+            // 
+            tBoxSearchPhoneNumber.Location = new Point(6, 202);
+            tBoxSearchPhoneNumber.Name = "tBoxSearchPhoneNumber";
+            tBoxSearchPhoneNumber.Size = new Size(227, 23);
+            tBoxSearchPhoneNumber.TabIndex = 59;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 184);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 15);
+            label4.TabIndex = 58;
+            label4.Text = "Telefone:";
             // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1267, 615);
+            ClientSize = new Size(1234, 611);
             Controls.Add(btnAddClient);
             Controls.Add(btnRemoveClient);
             Controls.Add(btnEditClient);
@@ -153,10 +213,16 @@
         private DataGridView dataGridClients;
         private Button btnRemoveClient;
         private Button btnEditClient;
-        private TextBox tBoxProductName;
+        private TextBox tBoxSearchClientName;
         private Label label2;
         private Button btnSearch;
         private Button btnAddClient;
         private GroupBox groupBox1;
+        private TextBox tBoxSearchLocation;
+        private Label label1;
+        private TextBox tBoxSearchPhoneNumber;
+        private Label label4;
+        private TextBox tBoxSearchNIF;
+        private Label label3;
     }
 }

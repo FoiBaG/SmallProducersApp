@@ -18,7 +18,7 @@ namespace SmallProducersApp.Forms
             InitializeComponent();
         }
 
-        private void btnAddProduct_Click(object sender, EventArgs e)
+        private void btnAddClient_Click(object sender, EventArgs e)
         {
             try
             {

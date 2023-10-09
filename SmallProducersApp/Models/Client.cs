@@ -71,18 +71,17 @@ namespace SmallProducersApp.Models
                 this.ClientName = FilterCategoryName(this.ClientName);
             }
 
-
             var x = sp.Client.Add(this);
             sp.SaveChanges();
-
         }
+
         public static List<Client> GetAll()
         {
             SmallProducersContext sp = new SmallProducersContext();
             var x = sp.Client.ToList();
             return x;
-
         }
+
         public static Client Get(int id)
         {
             SmallProducersContext sp = new SmallProducersContext();
