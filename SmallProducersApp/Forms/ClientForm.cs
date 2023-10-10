@@ -38,7 +38,7 @@ namespace SmallProducersApp.Forms
 
             List<Client> searchClient = Client.GetAll();
             
-            if (tBoxSearchClientName.Text != "")
+            if (tBoxSearchClientName.Text != null)
             {
 
                 List<Client> searchClientName;
@@ -54,7 +54,7 @@ namespace SmallProducersApp.Forms
                 searchClient = searchClientName;
             }
 
-            if (tBoxSearchLocation.Text != "")
+            if (tBoxSearchLocation.Text != null)
             {
 
                 List<Client> searchClientLocation;
@@ -70,12 +70,12 @@ namespace SmallProducersApp.Forms
                 searchClient = searchClientLocation;
             }
 
-            if (tBoxSearchNIF.Text != "")
+            if (tBoxSearchNIF.Text != null)
             {
 
                 List<Client> searchClientNIF;
 
-                if (tBoxSearchLocation.Text.Count() == 1)
+                if (tBoxSearchNIF.Text.Count() == 1)
                 {
                     searchClientNIF = searchClient.FindAll(Client => Client.NIF.ToString().First().Equals(tBoxSearchNIF.Text));
                 }
@@ -86,7 +86,7 @@ namespace SmallProducersApp.Forms
                 searchClient = searchClientNIF;
             }
 
-            if (tBoxSearchPhoneNumber.Text != "")
+            if (tBoxSearchPhoneNumber.Text != null)
             {
 
                 List<Client> searchClientPhoneNumber;
